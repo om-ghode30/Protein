@@ -249,9 +249,9 @@ function renderCartItems() {
     cartItem.innerHTML = `
       <div class="cart-item-info">
         <div class="cart-item-title">${item.flavor} Protein by ${item.brand}</div>
-        <div class="cart-item-details">${item.quantity}g at $${item.price.toFixed(2)}/g</div>
+        <div class="cart-item-details">${item.quantity}g at ${item.price.toFixed(2)}/g</div>
       </div>
-      <div class="cart-item-price">$${item.total.toFixed(2)}</div>
+      <div class="cart-item-price">${item.total.toFixed(2)}</div>
       <div class="remove-item" data-id="${item.id}">
         <i class="fas fa-trash"></i>
       </div>
