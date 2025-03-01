@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protein</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <h1>ProFuel</h1>
+      </div>
+      <div class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </div>
+    </header>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-step active" data-step="flavor">
+          <div class="step-icon"><i class="fas fa-blender"></i></div>
+          <div class="step-label">Flavor</div>
+        </div>
+        <div class="progress-step" data-step="brand">
+          <div class="step-icon"><i class="fas fa-dumbbell"></i></div>
+          <div class="step-label">Brand</div>
+        </div>
+        <div class="progress-step" data-step="quantity">
+          <div class="step-icon"><i class="fas fa-weight"></i></div>
+          <div class="step-label">Quantity</div>
+        </div>
+        <div class="progress-step" data-step="cart">
+          <div class="step-icon"><i class="fas fa-shopping-cart"></i></div>
+          <div class="step-label">Cart</div>
+        </div>
+        <div class="progress-step" data-step="payment">
+          <div class="step-icon"><i class="fas fa-credit-card"></i></div>
+          <div class="step-label">Payment</div>
+        </div>
+        <div class="progress-step" data-step="confirmation">
+          <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+          <div class="step-label">Confirmation</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+      <!-- Step 1: Flavor Selection -->
+
+      <section id="flavor-selection" class="selection-screen active">
+        <h2>Choose Your Protein Flavor</h2>
+        <div class="selection-grid">
+          <div class="selection-item" data-flavor="Chocolate">
+            <div class="item-image chocolate-bg">
+              <i class="fas fa-blender"></i>
+            </div>
+            <h3>Chocolate</h3>
+            <p>Rich and creamy chocolate flavor</p>
+          </div>
+          <div class="selection-item" data-flavor="Vanilla">
+            <div class="item-image vanilla-bg">
+              <i class="fas fa-blender"></i>
+            </div>
+            <h3>Vanilla</h3>
+            <p>Smooth and classic vanilla taste</p>
+          </div>
+          <div class="selection-item" data-flavor="Strawberry">
+            <div class="item-image strawberry-bg">
+              <i class="fas fa-blender"></i>
+            </div>
+            <h3>Strawberry</h3>
+            <p>Sweet strawberry delight</p>
+          </div>
+          <div class="selection-item" data-flavor="Banana">
+            <div class="item-image banana-bg">
+              <i class="fas fa-blender"></i>
+            </div>
+            <h3>Banana</h3>
+            <p>Natural banana goodness</p>
+          </div>
+          <div class="selection-item" data-flavor="Cookies & Cream">
+            <div class="item-image cookies-bg">
+              <i class="fas fa-blender"></i>
+            </div>
+            <h3>Cookies & Cream</h3>
+            <p>Creamy with cookie chunks</p>
+          </div>
+          <div class="selection-item" data-flavor="Unflavored">
+            <div class="item-image unflavored-bg">
+              <i class="fas fa-blender"></i>
+            </div>
+            <h3>Unflavored</h3>
+            <p>Pure protein, no added flavors</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 2: Brand Selection -->
+      <section id="brand-selection" class="selection-screen">
+        <div class="back-button">
+          <i class="fas fa-arrow-left"></i> Back to Flavors
+        </div>
+        <h2>Select Your Preferred Brand</h2>
+        <div class="selection-grid">
+          
+          
+
+          <div class="selection-item" data-brand="Dymatize" data-price="8.75">
+            
+              <img src="Assests/Brand Images/IMG-20241202-WA0004.jpg" alt="MEGA MASS GAINER" width="50px">
+            
+            <h3>MEGA MASS GAINER</h3>
+            <p>8.50 per gram</p>
+          </div>
+          <div class="selection-item" data-brand="MyProtein" data-price="6.89">
+            
+              <img src="Assests/Brand Images/IMG-20241202-WA0002.jpg" alt="Asitis from the Source"width="50px">
+            
+            <h3>Asitis from the Source</h3>
+            <p>6.89 per gram</p>
+          </div>
+          <div class="selection-item" data-brand="BSN" data-price="5.00">
+            
+              <img src="Assests/Brand Images//IMG-20241130-WA0003.jpg" alt="Dymatize ISO100(Hydrolyzed)"width="50px">
+            
+            <h3>Dymatize ISO100(Hydrolyzed)</h3>
+            <p>5.00 per gram</p>
+          </div>
+          <div class="selection-item" data-brand="MuscleTech" data-price="8.45">
+            
+              <img src="Assests/Brand Images/IMG-20241130-WA0002.jpg" alt="IMPACT WHEY ISOLATE"width="50px">
+            
+            <h3>IMPACT WHEY ISOLATE</h3>
+            <p>8.45 per gram</p>
+          </div>
+          <div class="selection-item" data-brand="MusclePharm" data-price="4.50">
+            
+              <img src="Assests/Brand Images/IMG-20241130-WA0001.jpg" alt="ISOWHEY"width="50px">
+            
+            <h3>ISOWHEY</h3>
+            <p>4.50 per gram</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Step 3: Quantity Selection -->
+      <section id="quantity-selection" class="selection-screen">
+        <div class="back-button">
+          <i class="fas fa-arrow-left"></i> Back to Brands
+        </div>
+        <h2>How Many Grams?</h2>
+        <div class="quantity-container">
+          <div class="selected-info">
+            <p>Selected: <span id="selected-flavor"></span> flavor by <span id="selected-brand"></span></p>
+            <p>Price: <span id="price-per-gram"></span> per gram</p>
+          </div>
+          <div class="quantity-selector">
+            <button id="decrease-quantity">-</button>
+            <input type="number" id="quantity-input" value="500" min="100" max="5000" step="100">
+            <button id="increase-quantity">+</button>
+          </div>
+          <div class="total-price">
+            <p>Total: <span id="total-price">0.00</span></p>
+          </div>
+          <button id="add-to-cart" class="primary-button">Add to Cart</button>
+        </div>
+      </section>
+
+      <!-- Cart Screen -->
+      <section id="cart-screen" class="selection-screen">
+        <div class="back-button">
+          <i class="fas fa-arrow-left"></i> Back to Shopping
+        </div>
+        <h2>Your Cart</h2>
+        <div id="cart-items" class="cart-items">
+          <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="cart-summary">
+          <p>Total: <span id="cart-total">0.00</span></p>
+          <button id="checkout-button" class="primary-button">Proceed to Checkout</button>
+        </div>
+      </section>
+
+      <!-- Payment Screen -->
+      <section id="payment-screen" class="selection-screen">
+        <div class="back-button">
+          <i class="fas fa-arrow-left"></i> Back to Cart
+        </div>
+        <h2>Payment</h2>
+        <div class="payment-form">
+          <div class="form-group">
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="expiry-date">Expiry Date</label>
+              <input type="text" id="expiry-date" placeholder="MM/YY" maxlength="5">
+            </div>
+            <div class="form-group">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" placeholder="123" maxlength="3">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="name-on-card">Name on Card</label>
+            <input type="text" id="name-on-card" placeholder="Ritesh Patil">
+          </div>
+          <button id="pay-button" class="primary-button">Pay <span id="payment-amount">0.00</span></button>
+        </div>
+      </section>
+
+      <!-- Order Confirmation Screen -->
+      <section id="confirmation-screen" class="selection-screen">
+        <div class="confirmation-content">
+          <i class="fas fa-check-circle confirmation-icon"></i>
+          <h2>Order Confirmed!</h2>
+          <p>Your protein order has been successfully placed.</p>
+          <p>Order #<span id="order-number">12345</span></p>
+          <button id="new-order-button" class="primary-button">Place New Order</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 ProFuel Protein Selection System</p>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

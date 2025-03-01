@@ -1,0 +1,570 @@
+:root {
+  --primary-color: #ff5c00;
+  --secondary-color: #ffb700;
+  --dark-color: #333;
+  --light-color: #f4f4f4;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  min-height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: var(--box-shadow);
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+.logo h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.cart-icon {
+  position: relative;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+#cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: white;
+  color: var(--primary-color);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Progress Bar Styles */
+.progress-container {
+  padding: 1rem 2rem;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.progress-bar::before {
+  content: '';
+  position: absolute;
+  top: 35px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #eee;
+  z-index: 1;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  text-align: center;
+}
+
+.step-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #999;
+  margin-bottom: 0.5rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+.step-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #999;
+  transition: var(--transition);
+}
+
+.progress-step.active .step-icon {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.progress-step.active .step-label {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.progress-step.completed .step-icon {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.progress-step.completed .step-label {
+  color: var(--success-color);
+}
+
+.progress-step.success .step-icon {
+  background-color: var(--success-color);
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+.progress-step.success .step-label {
+  color: var(--success-color);
+  font-weight: 700;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+  }
+}
+
+.progress-step.completed .step-icon::after {
+  content: '\f00c';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: white;
+  color: var(--success-color);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  border: 2px solid var(--success-color);
+}
+
+/* Main Content Styles */
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.selection-screen {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.selection-screen.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  font-size: 2.2rem;
+}
+
+.selection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.selection-item {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.selection-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.item-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1rem;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.chocolate-bg { background-color: #6b4226; }
+.vanilla-bg { background-color: #f3e5ab; color: #333; }
+.strawberry-bg { background-color: #ff5a5f; }
+.banana-bg { background-color: #ffe135; color: #333; }
+.cookies-bg { background-color: #3c3c3c; }
+.unflavored-bg { background-color: #e0e0e0; color: #333; }
+.brand-bg { background-color: var(--primary-color); }
+
+.selection-item h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.selection-item p {
+  color: #666;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.back-button:hover {
+  color: var(--secondary-color);
+}
+
+/* Quantity Selection Styles */
+.quantity-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.selected-info {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.selected-info p {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.quantity-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.quantity-selector button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.quantity-selector button:hover {
+  background-color: var(--secondary-color);
+}
+
+#quantity-input {
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+}
+
+.total-price {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.primary-button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.primary-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Cart Screen Styles */
+.cart-items {
+  margin-bottom: 2rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cart-item-details {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.cart-item-price {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.remove-item {
+  color: var(--danger-color);
+  cursor: pointer;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+
+.cart-summary {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.cart-summary p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Payment Screen Styles */
+.payment-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input[type="text"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Confirmation Screen Styles */
+.confirmation-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 3rem 2rem;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.confirmation-icon {
+  font-size: 5rem;
+  color: var(--success-color);
+  margin-bottom: 1.5rem;
+  animation: bounce 1s ease infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+#confirmation-screen h2 {
+  color: var(--success-color);
+  margin-bottom: 1rem;
+}
+
+#confirmation-screen p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#order-number {
+  font-weight: 600;
+}
+
+#new-order-button {
+  margin-top: 2rem;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--dark-color);
+  color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .selection-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .progress-bar {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  
+  .progress-step {
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 1rem;
+  }
+  
+  .logo h1 {
+    font-size: 2rem;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  .selection-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .quantity-selector button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  #quantity-input {
+    width: 100px;
+  }
+  
+  .step-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .step-label {
+    font-size: 0.7rem;
+  }
+}
