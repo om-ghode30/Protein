@@ -427,6 +427,12 @@ h2 {
   box-shadow: var(--box-shadow);
 }
 
+.payment-img{
+  padding-bottom: 20px;
+  text-align: center;
+  max-width: 100%;
+}
+
 .form-group {
   margin-bottom: 1.5rem;
 }
