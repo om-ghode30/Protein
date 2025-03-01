@@ -418,8 +418,9 @@ h2 {
 
 /* Payment Screen Styles */
 .payment-form {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
+  text-align: center;
   background-color: white;
   padding: 2rem;
   border-radius: 10px;
